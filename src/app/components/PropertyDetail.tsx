@@ -1,7 +1,6 @@
-import { ArrowLeft, Download, FileText, Shield, MapPin, TrendingUp, CheckCircle, AlertCircle, Building2, Scale, Home, ChevronRight, ChevronLeft, ExternalLink, X, Target, DollarSign, BarChart3, ArrowUp, ArrowDown, Minus, Bus, GraduationCap, HeartPulse, Briefcase, Train, Search, CreditCard, ClipboardList, Users, Gavel, Clock, Award, Landmark } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Shield, MapPin, TrendingUp, CheckCircle, AlertCircle, Building2, Scale, Home, ChevronRight, ChevronLeft, ExternalLink, X, Target, DollarSign, BarChart3, ArrowUp, ArrowDown, Minus, Bus, GraduationCap, HeartPulse, Briefcase, Train, Search, CreditCard, ClipboardList, Users, Gavel, Clock, Award, Landmark, Plus } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PremiumMap from './PremiumMap';
-import InvestmentCalculator from './InvestmentCalculator';
 import Slider from 'react-slick';
 import { useRef, useState, useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
@@ -118,6 +117,18 @@ const localityPOIs: Record<string, { name: string; distance: string; time: strin
   ],
 };
 
+const legalDocs = [
+  { id: 'title-deed', name: 'Title Deed', desc: "Primary ownership document establishing the seller's legal title to the property.", price: '₹599' },
+  { id: 'e-ferfar', name: 'e-Ferfar', desc: 'Digital mutation register showing ownership changes recorded with the revenue authority.', price: '₹399' },
+  { id: 'index-2', name: 'Index 2', desc: 'Government-issued record of all registered transactions linked to this property.', price: '₹499' },
+  { id: 'satbara', name: '7/12 Satbara', desc: 'Land record extract showing ownership, cultivation rights, and encumbrances on agricultural land.', price: '₹399' },
+  { id: 'village-map', name: 'Village Map', desc: 'Survey map demarcating the plot boundaries within the revenue village.', price: '₹349' },
+  { id: 'property-card', name: 'Property Card', desc: 'Urban land record (City Survey) confirming ownership of the plot in municipal areas.', price: '₹449' },
+  { id: '8a-extract', name: '8A Extract', desc: 'Revenue record listing all land holdings of the owner in a given taluka.', price: '₹349' },
+  { id: 'title-check', name: 'Title Check Document', desc: 'Legal opinion by an advocate verifying the chain of title and ownership history.', price: '₹1,499' },
+  { id: 'encumbrance', name: 'Encumbrance Check Report', desc: 'Report confirming the property is free from outstanding mortgages, liens, or charges.', price: '₹799' },
+];
+
 export default function PropertyDetail() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
@@ -133,6 +144,9 @@ export default function PropertyDetail() {
   const [eoiForm, setEoiForm] = useState({ name: '', contact: '', email: '', referral: '', message: '', agreed: false });
   const [eoiKycFile, setEoiKycFile] = useState<File | null>(null);
   const [eoiDragOver, setEoiDragOver] = useState(false);
+  const [docCart, setDocCart] = useState<string[]>([]);
+  const [processTab, setProcessTab] = useState<'diligence' | 'steps'>('diligence');
+  const [showStickyBar, setShowStickyBar] = useState(false);
 
   const property = id ? getPropertyById(id) : undefined;
 
@@ -144,7 +158,7 @@ export default function PropertyDetail() {
             Property Not Found
           </h1>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/properties')}
             className="px-6 py-3 bg-[#0F3D2E] text-[#FAF8F5] rounded-lg hover:bg-[#0F3D2E]/90"
           >
             Back to Opportunities
@@ -155,6 +169,11 @@ export default function PropertyDetail() {
   }
 
   const comparableProperties = property.comparableProperties;
+
+  const docTotal = docCart.reduce((sum, docId) => {
+    const doc = legalDocs.find(d => d.id === docId);
+    return doc ? sum + parseInt(doc.price.replace(/[₹,]/g, '')) : sum;
+  }, 0);
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -197,6 +216,12 @@ export default function PropertyDetail() {
     };
   }, [lightboxOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => setShowStickyBar(window.scrollY > 420);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -214,7 +239,7 @@ export default function PropertyDetail() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/properties')}
               className="flex items-center gap-2 text-[#6B6B6B] hover:text-[#0F3D2E] transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -231,22 +256,52 @@ export default function PropertyDetail() {
             <button className="px-4 py-2 text-sm text-[#6B6B6B] hover:text-[#0F3D2E] transition-colors">
               Share
             </button>
-            <button className="px-5 py-2.5 bg-[#0F3D2E] text-[#FAF8F5] rounded-lg text-sm hover:bg-[#0F3D2E]/90 transition-all">
+            <button
+              onClick={() => navigate('/contact')}
+              className="px-5 py-2.5 bg-[#0F3D2E] text-[#FAF8F5] rounded-lg text-sm hover:bg-[#0F3D2E]/90 transition-all"
+            >
               Contact Advisory
             </button>
           </div>
         </div>
       </nav>
 
+      {/* Sticky property summary bar */}
+      <div className={`fixed top-20 left-0 right-0 z-40 bg-[#0F3D2E]/96 backdrop-blur-sm border-b border-white/10 shadow-lg transition-all duration-300 ${showStickyBar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-12 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4 min-w-0">
+            <span className="text-sm text-[#FAF8F5] font-medium truncate" style={{ fontFamily: "'Crimson Pro', serif" }}>
+              {property.propertyName}
+            </span>
+            <span className="hidden sm:block text-[#FAF8F5]/70 text-sm">{property.price}</span>
+            <span className="hidden sm:block text-emerald-400 text-xs font-semibold">{property.discount} below market</span>
+          </div>
+          <div className="flex items-center gap-3 flex-shrink-0">
+            {property.endsIn && (
+              <div className="hidden sm:flex items-center gap-1.5 text-xs text-amber-300">
+                <Clock className="w-3.5 h-3.5" />
+                <span>{property.endsIn}d left</span>
+              </div>
+            )}
+            <button
+              onClick={() => setEoiOpen(true)}
+              className="px-4 py-1.5 bg-[#B8935E] text-[#FAF8F5] rounded-lg text-xs font-medium hover:bg-[#B8935E]/90 transition-all"
+            >
+              Express Interest
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Investment Hero Section */}
-      <section className="pt-28 pb-12 px-6 lg:px-12 bg-[#0F3D2E] relative overflow-hidden">
+      <section className="pt-24 pb-6 px-6 lg:px-12 bg-[#0F3D2E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 right-20 w-96 h-96 bg-[#B8935E] rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Badges + Title — full width */}
-          <div className="mb-6">
+          <div className="mb-4">
             <div className="flex items-center gap-3 mb-3">
               <span className="px-3 py-1.5 bg-[#B8935E]/20 border border-[#B8935E]/30 text-[#B8935E] text-xs rounded-full flex items-center gap-1.5">
                 <div className="w-1.5 h-1.5 bg-[#B8935E] rounded-full animate-pulse" />
@@ -267,6 +322,12 @@ export default function PropertyDetail() {
             <p className="text-sm text-[#FAF8F5]/55 tracking-wide">
               {property.propertyName}, {property.location}, Mumbai
             </p>
+            {property.endsIn && (
+              <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/15 border border-amber-400/25 rounded-full">
+                <Clock className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+                <span className="text-xs text-amber-300 font-medium">Auction closes in {property.endsIn} days</span>
+              </div>
+            )}
           </div>
 
           {/* Slideshow + Details */}
@@ -277,7 +338,7 @@ export default function PropertyDetail() {
                 <Slider ref={sliderRef} {...sliderSettings}>
                   {propertyImages.map((image, index) => (
                     <div key={index}>
-                      <div className="aspect-[4/3] cursor-pointer" onClick={() => openLightbox(index)}>
+                      <div className="h-[290px] cursor-pointer" onClick={() => openLightbox(index)}>
                         <div className="relative w-full h-full">
                           <img
                             src={image}
@@ -370,11 +431,6 @@ export default function PropertyDetail() {
         </div>
       </section>
 
-      {/* Investment Snapshot Dashboard */}
-      <section className="py-12 px-6 lg:px-12 bg-gradient-to-b from-[#0F3D2E] to-[#0F3D2E]">
-        
-      </section>
-
       {/* Institutional Price Analysis */}
       <section className="py-8 px-6 lg:px-12 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto">
@@ -440,10 +496,9 @@ export default function PropertyDetail() {
       </section>
 
       {/* Market Analysis */}
-      <div className="relative">
+      <div className="relative" style={{ isolation: 'isolate' }}>
       {!isLoggedIn && (
-        <div className="absolute inset-0 z-40" style={{ backdropFilter: 'blur(6px)', background: 'rgba(250,248,245,0.72)' }}>
-          <div className="sticky top-[28vh] flex justify-center px-4 py-8">
+        <div className="absolute inset-0 z-[900] flex items-start justify-center pt-[28vh] px-4 py-8" style={{ backdropFilter: 'blur(6px)', background: 'rgba(250,248,245,0.72)' }}>
           <div className="bg-white rounded-2xl shadow-2xl border border-black/8 px-10 py-10 flex flex-col items-center text-center max-w-sm w-full">
             <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border border-black/8 flex items-center justify-center mb-5">
               <svg className="w-7 h-7 text-[#0F3D2E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -465,7 +520,6 @@ export default function PropertyDetail() {
               Don't have an account?{' '}
               <span className="text-[#B8935E] underline cursor-pointer hover:text-[#B8935E]/80 transition-colors">Sign up now</span>
             </p>
-          </div>
           </div>
         </div>
       )}
@@ -673,140 +727,211 @@ export default function PropertyDetail() {
       </section>
       </div>
 
-      {/* Investment Strategy */}
-      <InvestmentCalculator />
+      {/* Legal Documents — E-Commerce Cart */}
+      <section className="py-14 px-6 lg:px-12 bg-[#0F3D2E] border-t border-white/10 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute top-10 right-10 w-72 h-72 bg-[#B8935E] rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-20 w-96 h-64 bg-[#B8935E] rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
 
-      {/* Legal & Diligence */}
-      <section className="py-12 px-6 lg:px-12 bg-white border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-
-            {/* Left: Due Diligence */}
+          {/* Header row */}
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
             <div>
-              <h2 className="text-2xl mb-1 text-[#0F3D2E]" style={{ fontFamily: "'Crimson Pro', serif" }}>
-                Due Diligence
-              </h2>
-              <p className="text-sm text-[#6B6B6B] mb-6">
-                Review all available documents and disclosures before you bid. Bidding constitutes acceptance of the terms.
-              </p>
-
-              <div className="divide-y divide-black/5">
-                <div className="py-5 flex gap-5">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#6B6B6B]">
-                    <FileText className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base text-[#0F3D2E] mb-1" style={{ fontFamily: "'Crimson Pro', serif" }}>1. Auction Notice</h3>
-                    <p className="text-sm text-[#6B6B6B]">The official bank-published auction notice contains the reserve price, auction date, EMD amount, and terms of sale. Review this document carefully — all bidding is subject to its conditions.</p>
-                  </div>
-                </div>
-                <div className="py-5 flex gap-5">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#6B6B6B]">
-                    <Shield className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base text-[#0F3D2E] mb-1" style={{ fontFamily: "'Crimson Pro', serif" }}>2. Encumbrance / Dues</h3>
-                    <p className="text-sm text-[#6B6B6B]">Check for any outstanding charges, society dues, property tax arrears, or other encumbrances. The buyer is typically liable for dues post-auction unless specified otherwise by the bank.</p>
-                  </div>
-                </div>
-                <div className="py-5 flex gap-5">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#6B6B6B]">
-                    <Scale className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base text-[#0F3D2E] mb-1" style={{ fontFamily: "'Crimson Pro', serif" }}>3. Litigation</h3>
-                    <p className="text-sm text-[#6B6B6B]">SARFAESI-based bank auctions may have borrower challenges pending in DRT or High Court. Verify whether any stay orders or objections exist before bidding.</p>
-                  </div>
-                </div>
-                <div className="py-5 flex gap-5">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#6B6B6B]">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base text-[#0F3D2E] mb-1" style={{ fontFamily: "'Crimson Pro', serif" }}>4. Site Visit</h3>
-                    <p className="text-sm text-[#6B6B6B]">A physical inspection is strongly recommended before bidding. Assess the property condition, verify actual possession status, and check for any occupation or structural concerns.</p>
-                  </div>
-                </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#B8935E]/20 border border-[#B8935E]/40 rounded-full mb-3">
+                <span className="w-2 h-2 bg-[#B8935E] rounded-full animate-pulse" />
+                <span className="text-xs text-[#B8935E] uppercase tracking-wide font-medium">Don't skip this · Critical before bidding</span>
               </div>
+              <h2 className="text-3xl text-[#FAF8F5]" style={{ fontFamily: "'Crimson Pro', serif" }}>Build Your Legal Bundle</h2>
+              <p className="text-sm text-[#FAF8F5]/60 mt-1 max-w-lg">
+                Select the documents you need. We procure, verify, and deliver them before your bid.
+              </p>
             </div>
 
-            {/* Right: Buying Process */}
-            <div>
-              <h2 className="text-2xl mb-1 text-[#0F3D2E]" style={{ fontFamily: "'Crimson Pro', serif" }}>
-                Your Buying Process
-              </h2>
-              <p className="text-sm text-[#6B6B6B] mb-6">
-                Step-by-step guide to acquiring a bank auction property in India.
-              </p>
-
+            {/* Cart indicator */}
+            <div className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300 flex-shrink-0 ${
+              docCart.length > 0 ? 'bg-[#B8935E] shadow-xl' : 'bg-white/10 border border-white/20'
+            }`}>
               <div className="relative">
-                {/* Vertical line */}
-                <div className="absolute left-[17px] top-3 bottom-3 w-px bg-[#0F3D2E]/10" />
-
-                {[
-                  { n: '01', title: 'Choose a Property', desc: 'Explore our listings and find a property that meets your investment requirements.', Icon: Home },
-                  { n: '02', title: 'Pay the EMD', desc: 'Submit 10% of the reserve price as Earnest Money Deposit via Demand Draft to the bank.', Icon: CreditCard },
-                  { n: '03', title: 'Submit Application', desc: 'Fill and submit the Common Application Form (CAF) along with KYC documents before the auction.', Icon: ClipboardList },
-                  { n: '04', title: 'Participate in Auction', desc: 'Attend the e-auction on the scheduled date and place your bids against other registered bidders.', Icon: Users },
-                  { n: '05', title: 'Auction Outcome', desc: 'If you win, pay 15% of the bid amount immediately. If you lose, your full EMD is refunded.', Icon: Gavel },
-                  { n: '06', title: 'Pay Balance in 15 Days', desc: 'Pay the remaining 75% of the total bid amount within 15 days to initiate the sale process.', Icon: Clock },
-                  { n: '07', title: 'Obtain Sale Certificate', desc: 'The bank issues a Sale Certificate confirming transfer of ownership upon full payment.', Icon: Award },
-                  { n: '08', title: 'Register the Property', desc: 'Complete registration at the Sub-Registrar Office with the Sale Certificate to get clear title.', Icon: Landmark },
-                ].map((step, i) => (
-                  <div key={i} className="relative flex gap-4 mb-4 last:mb-0">
-                    {/* Step badge */}
-                    <div className="flex-shrink-0 w-9 h-9 bg-[#0F3D2E] rounded-lg flex items-center justify-center z-10">
-                      <span className="text-[10px] font-semibold text-[#FAF8F5] tracking-wide">{step.n}</span>
-                    </div>
-                    {/* Card */}
-                    <div className="flex-1 bg-[#FAF8F5] border border-black/5 rounded-xl px-4 py-3 flex items-start justify-between gap-3">
-                      <div>
-                        <div className="text-sm font-medium text-[#0F3D2E] mb-0.5">{step.title}</div>
-                        <div className="text-xs text-[#6B6B6B] leading-relaxed">{step.desc}</div>
-                      </div>
-                      <step.Icon className="w-4 h-4 text-[#B8935E] flex-shrink-0 mt-0.5" />
-                    </div>
-                  </div>
-                ))}
+                <FileText className="w-5 h-5 text-[#FAF8F5]" />
+                {docCart.length > 0 && (
+                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-white rounded-full text-[10px] text-[#B8935E] font-bold flex items-center justify-center">
+                    {docCart.length}
+                  </span>
+                )}
               </div>
+              <div>
+                <div className="text-sm text-[#FAF8F5] font-semibold">
+                  {docCart.length === 0 ? 'None selected' : `${docCart.length} doc${docCart.length !== 1 ? 's' : ''} in bundle`}
+                </div>
+                <div className="text-xs text-[#FAF8F5]/70">
+                  {docCart.length === 0 ? `of ${legalDocs.length} available` : `₹${docTotal.toLocaleString('en-IN')} total`}
+                </div>
+              </div>
+              {docCart.length > 0 && (
+                <button className="ml-1 bg-white/20 hover:bg-white/30 transition-all text-[#FAF8F5] text-xs px-3 py-1.5 rounded-lg font-medium">
+                  Request →
+                </button>
+              )}
             </div>
-
           </div>
+
+          {/* Quick actions */}
+          <div className="flex items-center gap-2 mb-5 flex-wrap">
+            <button
+              onClick={() => setDocCart(legalDocs.map(d => d.id))}
+              className="text-xs px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#FAF8F5] rounded-lg transition-all border border-white/10"
+            >
+              Select All
+            </button>
+            <button
+              onClick={() => setDocCart(['title-deed', 'title-check', 'encumbrance', 'index-2'])}
+              className="text-xs px-3 py-1.5 bg-[#B8935E]/20 hover:bg-[#B8935E]/30 text-[#B8935E] rounded-lg transition-all border border-[#B8935E]/30 font-medium"
+            >
+              Most Popular Bundle
+            </button>
+            {docCart.length > 0 && (
+              <button
+                onClick={() => setDocCart([])}
+                className="text-xs px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#FAF8F5]/60 rounded-lg transition-all border border-white/10"
+              >
+                Clear
+              </button>
+            )}
+            <span className="text-xs text-[#FAF8F5]/40 ml-1">Tap any card to add or remove</span>
+          </div>
+
+          {/* Document cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+            {legalDocs.map((doc) => {
+              const inCart = docCart.includes(doc.id);
+              return (
+                <div
+                  key={doc.id}
+                  onClick={() => setDocCart(prev =>
+                    prev.includes(doc.id) ? prev.filter(d => d !== doc.id) : [...prev, doc.id]
+                  )}
+                  className={`rounded-xl border p-4 flex items-start gap-3 transition-all duration-200 cursor-pointer select-none active:scale-[0.98] ${
+                    inCart
+                      ? 'bg-[#B8935E]/15 border-[#B8935E]/50 shadow-md'
+                      : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/25'
+                  }`}
+                >
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                    inCart ? 'bg-[#B8935E]' : 'bg-white/10'
+                  }`}>
+                    {inCart
+                      ? <CheckCircle className="w-4 h-4 text-white" />
+                      : <Plus className="w-4 h-4 text-[#FAF8F5]/60" />
+                    }
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className={`text-sm font-medium leading-snug transition-colors ${inCart ? 'text-[#B8935E]' : 'text-[#FAF8F5]'}`}>
+                        {doc.name}
+                      </div>
+                      <span className={`text-xs font-semibold flex-shrink-0 transition-colors ${inCart ? 'text-[#B8935E]' : 'text-[#FAF8F5]/50'}`}>
+                        {doc.price}
+                      </span>
+                    </div>
+                    <div className="text-xs text-[#FAF8F5]/50 mt-0.5 leading-relaxed">{doc.desc}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Cart CTA strip — appears when items selected */}
+          {docCart.length > 0 && (
+            <div className="bg-[#B8935E] rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xl">
+              <div>
+                <div className="text-[#FAF8F5] font-semibold text-base">
+                  {docCart.length} document{docCart.length !== 1 ? 's' : ''} · ₹{docTotal.toLocaleString('en-IN')}
+                </div>
+                <div className="text-[#FAF8F5]/80 text-xs mt-0.5">We'll verify and deliver before your auction date</div>
+              </div>
+              <button className="bg-white text-[#B8935E] px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/90 transition-all flex-shrink-0 shadow-md active:scale-[0.97]">
+                Request Bundle →
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Legal Documents */}
-      <section className="py-12 px-6 lg:px-12 bg-[#FAF8F5] border-t border-black/5">
+      {/* Due Diligence + Buying Process — merged horizontal */}
+      <section className="py-10 px-6 lg:px-12 bg-[#FAF8F5] border-t border-black/5">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl mb-1 text-[#0F3D2E]" style={{ fontFamily: "'Crimson Pro', serif" }}>Legal Documents</h2>
-          <p className="text-sm text-[#6B6B6B] mb-8">Key documents to review and verify before placing your bid on this property.</p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              { name: 'Title Deed', desc: 'Primary ownership document establishing the seller\'s legal title to the property.' },
-              { name: 'e-Ferfar', desc: 'Digital mutation register entry showing ownership changes recorded with the revenue authority.' },
-              { name: 'Index 2', desc: 'Government-issued record of all registered transactions linked to this property.' },
-              { name: '7/12 Satbara', desc: 'Land record extract showing ownership, cultivation rights, and encumbrances on agricultural land.' },
-              { name: 'Village Map', desc: 'Survey map demarcating the plot boundaries within the revenue village.' },
-              { name: 'Property Card', desc: 'Urban land record (City Survey) confirming ownership of the plot in municipal areas.' },
-              { name: '8A Extract', desc: 'Revenue record listing all land holdings of the owner in a given taluka.' },
-              { name: 'Title Check Document', desc: 'Legal opinion prepared by an advocate verifying the chain of title and ownership history.' },
-              { name: 'Encumbrance Check Report', desc: 'Report confirming whether the property is free from any outstanding mortgages, liens, or charges.' },
-            ].map((doc) => (
-              <div key={doc.name} className="bg-white rounded-xl border border-black/5 px-5 py-4 flex items-start gap-4 hover:border-[#B8935E]/30 hover:shadow-sm transition-all group">
-                <div className="w-8 h-8 rounded-lg bg-[#0F3D2E]/5 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[#B8935E]/10 transition-colors">
-                  <FileText className="w-4 h-4 text-[#0F3D2E] group-hover:text-[#B8935E] transition-colors" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-sm text-[#0F3D2E] font-medium mb-1">{doc.name}</div>
-                  <div className="text-xs text-[#6B6B6B] leading-relaxed">{doc.desc}</div>
-                </div>
-                <div className="flex-shrink-0 ml-auto">
-                  <span className="text-[10px] text-[#9B9B9B] border border-black/10 rounded px-2 py-0.5">Pending</span>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <div>
+              <h2 className="text-2xl text-[#0F3D2E]" style={{ fontFamily: "'Crimson Pro', serif" }}>Before You Bid</h2>
+              <p className="text-sm text-[#6B6B6B] mt-0.5">Everything you need to do and know.</p>
+            </div>
+            <div className="flex gap-1 bg-[#0F3D2E]/5 rounded-xl p-1 self-start sm:self-auto">
+              <button
+                onClick={() => setProcessTab('diligence')}
+                className={`px-4 py-2 rounded-lg text-sm transition-all font-medium ${
+                  processTab === 'diligence' ? 'bg-[#0F3D2E] text-[#FAF8F5] shadow-sm' : 'text-[#6B6B6B] hover:text-[#0F3D2E]'
+                }`}
+              >
+                Due Diligence
+              </button>
+              <button
+                onClick={() => setProcessTab('steps')}
+                className={`px-4 py-2 rounded-lg text-sm transition-all font-medium ${
+                  processTab === 'steps' ? 'bg-[#0F3D2E] text-[#FAF8F5] shadow-sm' : 'text-[#6B6B6B] hover:text-[#0F3D2E]'
+                }`}
+              >
+                Buying Steps
+              </button>
+            </div>
           </div>
+
+          {processTab === 'diligence' && (
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                { Icon: FileText, title: '1. Auction Notice', desc: 'The official bank-published notice contains the reserve price, auction date, EMD, and terms of sale. Review carefully — all bidding is subject to its conditions.' },
+                { Icon: Shield, title: '2. Encumbrance / Dues', desc: 'Check outstanding charges, society dues, property tax arrears, or other encumbrances. Buyers are typically liable for dues post-auction.' },
+                { Icon: Scale, title: '3. Litigation', desc: 'SARFAESI auctions may have borrower challenges in DRT or High Court. Verify whether any stay orders or objections exist before bidding.' },
+                { Icon: MapPin, title: '4. Site Visit', desc: 'Physical inspection is strongly recommended. Assess condition, verify possession status, and check for occupancy or structural concerns.' },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-white border border-black/5 rounded-xl p-4 hover:border-[#0F3D2E]/15 transition-all">
+                  <div className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <item.Icon className="w-4 h-4 text-[#6B6B6B]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-[#0F3D2E] mb-1" style={{ fontFamily: "'Crimson Pro', serif" }}>{item.title}</div>
+                    <div className="text-xs text-[#6B6B6B] leading-relaxed">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {processTab === 'steps' && (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {[
+                { n: '01', title: 'Choose a Property', desc: 'Explore listings and find a property that meets your investment requirements.', Icon: Home },
+                { n: '02', title: 'Pay the EMD', desc: 'Submit 10% of the reserve price as Earnest Money Deposit via Demand Draft to the bank.', Icon: CreditCard },
+                { n: '03', title: 'Submit Application', desc: 'Fill the Common Application Form (CAF) with KYC documents before the auction.', Icon: ClipboardList },
+                { n: '04', title: 'Participate in Auction', desc: 'Attend the e-auction on the scheduled date and place bids against other registered bidders.', Icon: Users },
+                { n: '05', title: 'Auction Outcome', desc: 'Win: pay 15% immediately. Lose: full EMD refunded within days.', Icon: Gavel },
+                { n: '06', title: 'Pay Balance in 15 Days', desc: 'Pay the remaining 75% of the total bid amount within 15 days to initiate the sale process.', Icon: Clock },
+                { n: '07', title: 'Obtain Sale Certificate', desc: 'The bank issues a Sale Certificate confirming transfer of ownership upon full payment.', Icon: Award },
+                { n: '08', title: 'Register the Property', desc: 'Complete registration at the Sub-Registrar Office with the Sale Certificate to get clear title.', Icon: Landmark },
+              ].map((step, i) => (
+                <div key={i} className="bg-white border border-black/5 rounded-xl p-4 hover:border-[#0F3D2E]/15 transition-all">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 bg-[#0F3D2E] rounded-md flex items-center justify-center flex-shrink-0">
+                      <span className="text-[10px] font-semibold text-[#FAF8F5]">{step.n}</span>
+                    </div>
+                    <step.Icon className="w-4 h-4 text-[#B8935E]" />
+                  </div>
+                  <div className="text-sm font-medium text-[#0F3D2E] mb-1">{step.title}</div>
+                  <div className="text-xs text-[#6B6B6B] leading-relaxed">{step.desc}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

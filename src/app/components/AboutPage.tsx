@@ -1,7 +1,9 @@
-import { ArrowLeft, Building2, Target, Users, Award, TrendingUp, Shield } from 'lucide-react';
+import { Building2, Target, Users, Award, TrendingUp, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
+import Navbar from './shared/Navbar';
+import Footer from './shared/Footer';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -73,27 +75,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] scroll-smooth" style={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-sm border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
-          >
-            <div className="w-8 h-8 bg-[#0F3D2E] rounded-sm" />
-            <span className="text-xl tracking-tight" style={{ fontFamily: "'Crimson Pro', serif", color: '#0F3D2E' }}>
-              Headway Capital
-            </span>
-          </button>
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-sm text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </button>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-12 relative overflow-hidden">
@@ -399,7 +381,7 @@ export default function AboutPage() {
             Join our network of sophisticated investors accessing Mumbai's most undervalued properties
           </p>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/properties')}
             className="px-8 py-4 bg-[#B8935E] text-[#FAF8F5] rounded-lg hover:bg-[#B8935E]/90 transition-all"
           >
             View Current Opportunities
@@ -407,14 +389,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 lg:px-12 bg-[#FAF8F5] border-t border-black/5">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-sm text-[#6B6B6B]">
-            © 2026 Headway Capital. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

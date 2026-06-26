@@ -1,0 +1,522 @@
+{
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\.claude\\launch.json": {
+    "mtime": 1781811840.6046927,
+    "ast_hash": "31faabb20a87c3227e03242fba332934",
+    "semantic_hash": "31faabb20a87c3227e03242fba332934"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\api\\chat.ts": {
+    "mtime": 1782392519.5137932,
+    "ast_hash": "88be108eafe92eedbb56d8bd43ad09d2",
+    "semantic_hash": "88be108eafe92eedbb56d8bd43ad09d2"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\package.json": {
+    "mtime": 1782392658.1886554,
+    "ast_hash": "4d1a25ae9639b3a27a9ef43da05b3521",
+    "semantic_hash": "4d1a25ae9639b3a27a9ef43da05b3521"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\postcss.config.mjs": {
+    "mtime": 1781633836.0,
+    "ast_hash": "512ddfe3175b0d294ec1e4789f27885f",
+    "semantic_hash": "512ddfe3175b0d294ec1e4789f27885f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\App.tsx": {
+    "mtime": 1781946189.388024,
+    "ast_hash": "9dab9c3cf1f214c947ec2e34591b6230",
+    "semantic_hash": "9dab9c3cf1f214c947ec2e34591b6230"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\AboutPage.tsx": {
+    "mtime": 1781642099.332482,
+    "ast_hash": "916ea1d458b49c787cb2e1065709c76f",
+    "semantic_hash": "916ea1d458b49c787cb2e1065709c76f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ChatPage.tsx": {
+    "mtime": 1782392614.043646,
+    "ast_hash": "f4c8495dac2d6a8c6bad8443ce5f86ba",
+    "semantic_hash": "f4c8495dac2d6a8c6bad8443ce5f86ba"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ContactPage.tsx": {
+    "mtime": 1781956054.8352227,
+    "ast_hash": "5b37e73bbe625add9e63e9ff75bde912",
+    "semantic_hash": "5b37e73bbe625add9e63e9ff75bde912"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\HomePage.tsx": {
+    "mtime": 1781946363.1805792,
+    "ast_hash": "b810051ec3ab6d7019c13271cc702481",
+    "semantic_hash": "b810051ec3ab6d7019c13271cc702481"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\HowItWorksPage.tsx": {
+    "mtime": 1781641864.856313,
+    "ast_hash": "72556e0c7c26a97b358e65e0ed21344c",
+    "semantic_hash": "72556e0c7c26a97b358e65e0ed21344c"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\InvestmentCalculator.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8cccd71848b34871071c958b43937215",
+    "semantic_hash": "8cccd71848b34871071c958b43937215"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\LearnPage.tsx": {
+    "mtime": 1781810156.0533817,
+    "ast_hash": "131644e998d5bf376164f4820562fe5c",
+    "semantic_hash": "131644e998d5bf376164f4820562fe5c"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\NotFoundPage.tsx": {
+    "mtime": 1781810167.2161458,
+    "ast_hash": "f93181edafae1c483a19af67f51442c8",
+    "semantic_hash": "f93181edafae1c483a19af67f51442c8"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\PremiumMap.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "cedd10001aeb1a493c30b413ff0c7d93",
+    "semantic_hash": "cedd10001aeb1a493c30b413ff0c7d93"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\PropertiesPage.tsx": {
+    "mtime": 1781641822.4497702,
+    "ast_hash": "3bae2df0b279fd43e2e4676f2d38e099",
+    "semantic_hash": "3bae2df0b279fd43e2e4676f2d38e099"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\PropertyDetail.tsx": {
+    "mtime": 1781957071.7549899,
+    "ast_hash": "b7fcc204bf0bfaab8cf8884a7765e384",
+    "semantic_hash": "b7fcc204bf0bfaab8cf8884a7765e384"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\figma\\ImageWithFallback.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "cf265545a904ec8dfc50a4dd25209a79",
+    "semantic_hash": "cf265545a904ec8dfc50a4dd25209a79"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\shared\\Footer.tsx": {
+    "mtime": 1781810133.4972825,
+    "ast_hash": "be3ce02f9e46ab22c5aa6b33bba5dc6a",
+    "semantic_hash": "be3ce02f9e46ab22c5aa6b33bba5dc6a"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\shared\\Navbar.tsx": {
+    "mtime": 1781810144.6788554,
+    "ast_hash": "e9197efc9cf4732b203576bfb2234dfa",
+    "semantic_hash": "e9197efc9cf4732b203576bfb2234dfa"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\shared\\PropertyCard.tsx": {
+    "mtime": 1781641772.9945471,
+    "ast_hash": "b64bdde0b7bed36e6237fcfb9cb67dcb",
+    "semantic_hash": "b64bdde0b7bed36e6237fcfb9cb67dcb"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\shared\\ScrollToTop.tsx": {
+    "mtime": 1781641778.8232653,
+    "ast_hash": "7016dd6beb3f6adcf422b84586f1ba7b",
+    "semantic_hash": "7016dd6beb3f6adcf422b84586f1ba7b"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\shared\\animations.ts": {
+    "mtime": 1781641705.223101,
+    "ast_hash": "e994d96352e9b2fc033df22c3c11cd01",
+    "semantic_hash": "e994d96352e9b2fc033df22c3c11cd01"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\accordion.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "b70c6a9ebee8874bb4e5880da21a4f44",
+    "semantic_hash": "b70c6a9ebee8874bb4e5880da21a4f44"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\alert-dialog.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "fffdba13911be5058cb47ae712dd00b6",
+    "semantic_hash": "fffdba13911be5058cb47ae712dd00b6"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\alert.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "162e5c706a1cd900d863fd5a19a56507",
+    "semantic_hash": "162e5c706a1cd900d863fd5a19a56507"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\aspect-ratio.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "2c1c30af12401d88f8df52c3c235ed67",
+    "semantic_hash": "2c1c30af12401d88f8df52c3c235ed67"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\avatar.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "c8fcbe36f44f9d68c45ce38546bdda9c",
+    "semantic_hash": "c8fcbe36f44f9d68c45ce38546bdda9c"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\badge.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "027ca1b168b5a31ec381898dd0fad1d8",
+    "semantic_hash": "027ca1b168b5a31ec381898dd0fad1d8"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\breadcrumb.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "ffaa516f002d988d1a3d2cffb2a5f175",
+    "semantic_hash": "ffaa516f002d988d1a3d2cffb2a5f175"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\button.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "2a2ce95de39f4f4849f70bb615492ab7",
+    "semantic_hash": "2a2ce95de39f4f4849f70bb615492ab7"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\calendar.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "f5fd009223e3652640773e98dcc5e59f",
+    "semantic_hash": "f5fd009223e3652640773e98dcc5e59f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\card.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "1c1ec988ee2908e66b010798309baa58",
+    "semantic_hash": "1c1ec988ee2908e66b010798309baa58"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\carousel.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "c89d7f94c3d16dcf2d4e34f0b8034084",
+    "semantic_hash": "c89d7f94c3d16dcf2d4e34f0b8034084"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\chart.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "42ef994d83724dcaacbdddeaddf7b18b",
+    "semantic_hash": "42ef994d83724dcaacbdddeaddf7b18b"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\checkbox.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "513285928084159260a7f0f6735f77c8",
+    "semantic_hash": "513285928084159260a7f0f6735f77c8"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\collapsible.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "fb83308ef990f33e60b56b22c6adb007",
+    "semantic_hash": "fb83308ef990f33e60b56b22c6adb007"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\command.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "41e1d0c759f0327b879dfec678cfe781",
+    "semantic_hash": "41e1d0c759f0327b879dfec678cfe781"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\context-menu.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "d613a68dc16ac28500406d3ed7d1cc44",
+    "semantic_hash": "d613a68dc16ac28500406d3ed7d1cc44"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\dialog.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "d908f64f8ea05b532d292ff2cfc0f9d0",
+    "semantic_hash": "d908f64f8ea05b532d292ff2cfc0f9d0"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\drawer.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "eb7f3850284135ed58adeeb2205e739c",
+    "semantic_hash": "eb7f3850284135ed58adeeb2205e739c"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\dropdown-menu.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "88eba49303246bd059776e95106373e5",
+    "semantic_hash": "88eba49303246bd059776e95106373e5"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\form.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "7bd150b19048c2af09b63dd0a260b179",
+    "semantic_hash": "7bd150b19048c2af09b63dd0a260b179"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\hover-card.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "2225b5b5db78c8dde5f0aff6aa08458c",
+    "semantic_hash": "2225b5b5db78c8dde5f0aff6aa08458c"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\input-otp.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "a74758e038db3ef3301c58bd0ac01753",
+    "semantic_hash": "a74758e038db3ef3301c58bd0ac01753"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\input.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "3a32dac1fb72ab6a6893f806aac049e0",
+    "semantic_hash": "3a32dac1fb72ab6a6893f806aac049e0"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\label.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "06608274383a01446d19b9a7ed8148c3",
+    "semantic_hash": "06608274383a01446d19b9a7ed8148c3"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\menubar.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "c955592a9b680c223a6aa7ba5eca19af",
+    "semantic_hash": "c955592a9b680c223a6aa7ba5eca19af"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\navigation-menu.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "c6ecd95499ba6e8fe4d8fdd16be18d24",
+    "semantic_hash": "c6ecd95499ba6e8fe4d8fdd16be18d24"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\pagination.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "7531a02a3c7a33d56e2f668ffd7a0d35",
+    "semantic_hash": "7531a02a3c7a33d56e2f668ffd7a0d35"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\popover.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "3db5181d3777cead79949d25c31872aa",
+    "semantic_hash": "3db5181d3777cead79949d25c31872aa"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\progress.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "a21bc28c146d6e943b3204b095f17a74",
+    "semantic_hash": "a21bc28c146d6e943b3204b095f17a74"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\radio-group.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "25f34d829563805260a4b1234bfcac3f",
+    "semantic_hash": "25f34d829563805260a4b1234bfcac3f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\resizable.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "dbedce80325c20ea43ce386433e87415",
+    "semantic_hash": "dbedce80325c20ea43ce386433e87415"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\scroll-area.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "ceed8816f5ac36bda5c970e49fed5347",
+    "semantic_hash": "ceed8816f5ac36bda5c970e49fed5347"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\select.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "7efb1603282cbfbd4bb752fc6aa16465",
+    "semantic_hash": "7efb1603282cbfbd4bb752fc6aa16465"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\separator.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8011cea02bdcd4a2e666dacb82cf43d6",
+    "semantic_hash": "8011cea02bdcd4a2e666dacb82cf43d6"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\sheet.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "14f866a1ec7bd747f499b606f8e40cb3",
+    "semantic_hash": "14f866a1ec7bd747f499b606f8e40cb3"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\sidebar.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "6f2411b67de8153c8890d9688b636cb0",
+    "semantic_hash": "6f2411b67de8153c8890d9688b636cb0"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\skeleton.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "a71aca7b1a33fbf0e5ecd93015c7804f",
+    "semantic_hash": "a71aca7b1a33fbf0e5ecd93015c7804f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\slider.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "276b72ee040e75c35385b068e6c279d2",
+    "semantic_hash": "276b72ee040e75c35385b068e6c279d2"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\sonner.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "ace3a6465858e1f9a441724008f2d921",
+    "semantic_hash": "ace3a6465858e1f9a441724008f2d921"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\switch.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "24628008ea7aeeecdd193ca7de846552",
+    "semantic_hash": "24628008ea7aeeecdd193ca7de846552"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\table.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "2066531279772875cba1f2c269fe23b4",
+    "semantic_hash": "2066531279772875cba1f2c269fe23b4"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\tabs.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "e85ffdace1c1d8b2e4c748c2877b9fe2",
+    "semantic_hash": "e85ffdace1c1d8b2e4c748c2877b9fe2"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\textarea.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "9aa996cfdc9b59dd5e9cce00e5fb8280",
+    "semantic_hash": "9aa996cfdc9b59dd5e9cce00e5fb8280"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\toggle-group.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "4bc07765706ef9a2e74f97de0fc0ecc0",
+    "semantic_hash": "4bc07765706ef9a2e74f97de0fc0ecc0"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\toggle.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "4c8cf865ef8acde9a3558cb8c21ecdc4",
+    "semantic_hash": "4c8cf865ef8acde9a3558cb8c21ecdc4"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\tooltip.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "7e731b948edb6f93cf7d1841d056e5bb",
+    "semantic_hash": "7e731b948edb6f93cf7d1841d056e5bb"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\use-mobile.ts": {
+    "mtime": 1781633836.0,
+    "ast_hash": "21f0293b823c5298aa735fc013840cff",
+    "semantic_hash": "21f0293b823c5298aa735fc013840cff"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\components\\ui\\utils.ts": {
+    "mtime": 1781633836.0,
+    "ast_hash": "d9837f38cc05303254571985e3164050",
+    "semantic_hash": "d9837f38cc05303254571985e3164050"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\data\\helpers.ts": {
+    "mtime": 1781641715.3910105,
+    "ast_hash": "2b6019bc144e8a5345f34cca3f044141",
+    "semantic_hash": "2b6019bc144e8a5345f34cca3f044141"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\app\\data\\properties.ts": {
+    "mtime": 1781633836.0,
+    "ast_hash": "5305d0eb2ee4c982784505d16847062b",
+    "semantic_hash": "5305d0eb2ee4c982784505d16847062b"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\main.tsx": {
+    "mtime": 1781633836.0,
+    "ast_hash": "51dad133822f0eec82675f1d05c8719f",
+    "semantic_hash": "51dad133822f0eec82675f1d05c8719f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\vercel.json": {
+    "mtime": 1781634311.4325528,
+    "ast_hash": "3ce034f37a6661efc8073a99b87d2c87",
+    "semantic_hash": "3ce034f37a6661efc8073a99b87d2c87"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\vite.config.ts": {
+    "mtime": 1781634317.497216,
+    "ast_hash": "4382da5169dc5a6d99e93e115aed172c",
+    "semantic_hash": "4382da5169dc5a6d99e93e115aed172c"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\ATTRIBUTIONS.md": {
+    "mtime": 1781633836.0,
+    "ast_hash": "0ef7cd1ecf2c4438bc1c8787c02252da",
+    "semantic_hash": "0ef7cd1ecf2c4438bc1c8787c02252da"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\README.md": {
+    "mtime": 1781633836.0,
+    "ast_hash": "b7204b82cac19902a640191afbe3b489",
+    "semantic_hash": "b7204b82cac19902a640191afbe3b489"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\index.html": {
+    "mtime": 1781634307.626099,
+    "ast_hash": "60a9814b69882c4d7787a9b1ddc84fe1",
+    "semantic_hash": "60a9814b69882c4d7787a9b1ddc84fe1"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-1.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "74f1e32fd23ed8f5dbcca42ac54231b2",
+    "semantic_hash": "74f1e32fd23ed8f5dbcca42ac54231b2"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-10.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "1ca4ecfea3c94fa08cf057ad87c1ab37",
+    "semantic_hash": "1ca4ecfea3c94fa08cf057ad87c1ab37"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-11.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "379a47d4d252d54e7dc8a7d0aa2cf96f",
+    "semantic_hash": "379a47d4d252d54e7dc8a7d0aa2cf96f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-12.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "49e4f4fcdd0635895732ef58ca92f50b",
+    "semantic_hash": "49e4f4fcdd0635895732ef58ca92f50b"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-13.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "537caf64514dde01de9032368f5c3796",
+    "semantic_hash": "537caf64514dde01de9032368f5c3796"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-14.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8301d416dadfbcc3b3913ef9c6ec6655",
+    "semantic_hash": "8301d416dadfbcc3b3913ef9c6ec6655"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-15.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "a98220e772f9f984bd7133c8d0583095",
+    "semantic_hash": "a98220e772f9f984bd7133c8d0583095"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-16.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "2d4428b7024db19c3ce3a12ac6cf0c4f",
+    "semantic_hash": "2d4428b7024db19c3ce3a12ac6cf0c4f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-17.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "9283b07209ba6586bd8ca25c03771f68",
+    "semantic_hash": "9283b07209ba6586bd8ca25c03771f68"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-18.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8c956e746be989644309127ce36ec8b4",
+    "semantic_hash": "8c956e746be989644309127ce36ec8b4"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-19.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "cc7834811420bc58502ce27114d5d0f5",
+    "semantic_hash": "cc7834811420bc58502ce27114d5d0f5"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-2.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "31eb8c2671deac84e08a9a7bce231ac5",
+    "semantic_hash": "31eb8c2671deac84e08a9a7bce231ac5"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-20.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "9f75d40eaa33c4bd557ac6f7eaa164d6",
+    "semantic_hash": "9f75d40eaa33c4bd557ac6f7eaa164d6"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-21.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "6c56bacedf2bdd3543371883b451c779",
+    "semantic_hash": "6c56bacedf2bdd3543371883b451c779"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-22.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8dd4dd2f5e8514c96ef08ac5c4a13d55",
+    "semantic_hash": "8dd4dd2f5e8514c96ef08ac5c4a13d55"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-23.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "85f54386ea6f40c04de85919979ef95f",
+    "semantic_hash": "85f54386ea6f40c04de85919979ef95f"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-24.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8fbe51b8a9fa5800741b93d16bd7d938",
+    "semantic_hash": "8fbe51b8a9fa5800741b93d16bd7d938"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-25.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "e038e02c3aacde874ff12bd888fd02cf",
+    "semantic_hash": "e038e02c3aacde874ff12bd888fd02cf"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-3.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "59aeb4f3cbc0b49c361e3e0eba1eaefe",
+    "semantic_hash": "59aeb4f3cbc0b49c361e3e0eba1eaefe"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-4.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "6aca01dc08391c3683048cf042e84658",
+    "semantic_hash": "6aca01dc08391c3683048cf042e84658"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-5.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "59aeb4f3cbc0b49c361e3e0eba1eaefe",
+    "semantic_hash": "59aeb4f3cbc0b49c361e3e0eba1eaefe"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-6.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "b4789020de87d8b04a680a8cd264153a",
+    "semantic_hash": "b4789020de87d8b04a680a8cd264153a"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-7.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "ec4eedff9d5408899da894a4ed0df386",
+    "semantic_hash": "ec4eedff9d5408899da894a4ed0df386"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-8.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "cfad682eb359e842801b7e57b083d3b6",
+    "semantic_hash": "cfad682eb359e842801b7e57b083d3b6"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image-9.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "1ca4ecfea3c94fa08cf057ad87c1ab37",
+    "semantic_hash": "1ca4ecfea3c94fa08cf057ad87c1ab37"
+  },
+  "C:\\Users\\Harshvardhan\\OneDrive\\Desktop\\headway_extracted\\src\\imports\\image.png": {
+    "mtime": 1781633836.0,
+    "ast_hash": "8eb3c6e67876c13b115b8f374190486f",
+    "semantic_hash": "8eb3c6e67876c13b115b8f374190486f"
+  }
+}

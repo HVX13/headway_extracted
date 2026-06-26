@@ -1,4 +1,4 @@
-import { ArrowLeft, Download, FileText, Shield, MapPin, TrendingUp, CheckCircle, AlertCircle, Building2, Scale, Home, ChevronRight, ChevronLeft, ExternalLink, X, Target, DollarSign, BarChart3, ArrowUp, ArrowDown, Minus, Bus, GraduationCap, HeartPulse, Briefcase, Train, Search, CreditCard, ClipboardList, Users, Gavel, Clock, Award, Landmark, Plus } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Shield, MapPin, TrendingUp, CheckCircle, AlertCircle, Building2, Scale, Home, ChevronRight, ChevronLeft, ExternalLink, X, Target, DollarSign, BarChart3, ArrowUp, ArrowDown, Minus, Bus, GraduationCap, HeartPulse, Briefcase, Train, Search, CreditCard, ClipboardList, Users, Gavel, Clock, Award, Landmark, Plus, MessageSquare, ChevronDown } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PremiumMap from './PremiumMap';
 import Slider from 'react-slick';
@@ -129,6 +129,12 @@ const legalDocs = [
   { id: 'encumbrance', name: 'Encumbrance Check Report', desc: 'Report confirming the property is free from outstanding mortgages, liens, or charges.', price: '₹799' },
 ];
 
+const popularBundles = [
+  { name: 'Essential',    sub: 'Core verification — title + encumbrance',      ids: ['title-deed', 'encumbrance'] },
+  { name: 'Recommended',  sub: 'Most popular pre-bid package (4 documents)',    ids: ['title-deed', 'title-check', 'encumbrance', 'index-2'], highlight: true },
+  { name: 'Complete',     sub: 'Full document set — all 9 documents',           ids: ['title-deed', 'e-ferfar', 'index-2', 'satbara', 'village-map', 'property-card', '8a-extract', 'title-check', 'encumbrance'] },
+];
+
 export default function PropertyDetail() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
@@ -145,8 +151,9 @@ export default function PropertyDetail() {
   const [eoiKycFile, setEoiKycFile] = useState<File | null>(null);
   const [eoiDragOver, setEoiDragOver] = useState(false);
   const [docCart, setDocCart] = useState<string[]>([]);
-  const [processTab, setProcessTab] = useState<'diligence' | 'steps'>('diligence');
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [bundleMenuOpen, setBundleMenuOpen] = useState(false);
+  const bundleMenuRef = useRef<HTMLDivElement>(null);
 
   const property = id ? getPropertyById(id) : undefined;
 
@@ -220,6 +227,16 @@ export default function PropertyDetail() {
     const handleScroll = () => setShowStickyBar(window.scrollY > 420);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (bundleMenuRef.current && !bundleMenuRef.current.contains(e.target as Node)) {
+        setBundleMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
   }, []);
 
   const sliderSettings = {
@@ -784,12 +801,54 @@ export default function PropertyDetail() {
             >
               Select All
             </button>
+
+            {/* Popular Bundles dropdown */}
+            <div className="relative" ref={bundleMenuRef}>
+              <button
+                onClick={() => setBundleMenuOpen(v => !v)}
+                className="text-xs px-3 py-1.5 bg-[#B8935E]/20 hover:bg-[#B8935E]/30 text-[#B8935E] rounded-lg transition-all border border-[#B8935E]/30 font-medium flex items-center gap-1.5"
+              >
+                Popular Bundles
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${bundleMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {bundleMenuOpen && (
+                <div className="absolute top-full left-0 mt-2 w-72 bg-[#1a2e24] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden">
+                  {popularBundles.map(bundle => {
+                    const bundlePrice = bundle.ids.reduce((sum, id) => {
+                      const doc = legalDocs.find(d => d.id === id);
+                      return doc ? sum + parseInt(doc.price.replace(/[₹,]/g, '')) : sum;
+                    }, 0);
+                    return (
+                      <button
+                        key={bundle.name}
+                        onClick={() => { setDocCart([...bundle.ids]); setBundleMenuOpen(false); }}
+                        className={`w-full text-left px-4 py-3.5 hover:bg-white/8 transition-all border-b border-white/6 last:border-0 ${bundle.highlight ? 'bg-[#B8935E]/10' : ''}`}
+                      >
+                        <div className="flex items-center justify-between mb-0.5">
+                          <span className={`text-sm font-medium ${bundle.highlight ? 'text-[#B8935E]' : 'text-[#FAF8F5]'}`}>
+                            {bundle.name}
+                            {bundle.highlight && <span className="ml-2 text-[9px] bg-[#B8935E]/30 text-[#B8935E] px-1.5 py-0.5 rounded-full uppercase tracking-wide">Popular</span>}
+                          </span>
+                          <span className="text-xs text-[#FAF8F5]/60 font-medium">₹{bundlePrice.toLocaleString('en-IN')}</span>
+                        </div>
+                        <p className="text-xs text-[#FAF8F5]/45">{bundle.sub}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Ask AI */}
             <button
-              onClick={() => setDocCart(['title-deed', 'title-check', 'encumbrance', 'index-2'])}
-              className="text-xs px-3 py-1.5 bg-[#B8935E]/20 hover:bg-[#B8935E]/30 text-[#B8935E] rounded-lg transition-all border border-[#B8935E]/30 font-medium"
+              onClick={() => window.open('/chat', '_blank')}
+              className="text-xs px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#FAF8F5] rounded-lg transition-all border border-white/10 flex items-center gap-1.5"
             >
-              Most Popular Bundle
+              <MessageSquare className="w-3 h-3" />
+              Ask AI
             </button>
+
             {docCart.length > 0 && (
               <button
                 onClick={() => setDocCart([])}
@@ -853,83 +912,6 @@ export default function PropertyDetail() {
               <button className="bg-white text-[#B8935E] px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/90 transition-all flex-shrink-0 shadow-md active:scale-[0.97]">
                 Request Bundle →
               </button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Due Diligence + Buying Process — merged horizontal */}
-      <section className="py-10 px-6 lg:px-12 bg-[#FAF8F5] border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-            <div>
-              <h2 className="text-2xl text-[#0F3D2E]" style={{ fontFamily: "'Crimson Pro', serif" }}>Before You Bid</h2>
-              <p className="text-sm text-[#6B6B6B] mt-0.5">Everything you need to do and know.</p>
-            </div>
-            <div className="flex gap-1 bg-[#0F3D2E]/5 rounded-xl p-1 self-start sm:self-auto">
-              <button
-                onClick={() => setProcessTab('diligence')}
-                className={`px-4 py-2 rounded-lg text-sm transition-all font-medium ${
-                  processTab === 'diligence' ? 'bg-[#0F3D2E] text-[#FAF8F5] shadow-sm' : 'text-[#6B6B6B] hover:text-[#0F3D2E]'
-                }`}
-              >
-                Due Diligence
-              </button>
-              <button
-                onClick={() => setProcessTab('steps')}
-                className={`px-4 py-2 rounded-lg text-sm transition-all font-medium ${
-                  processTab === 'steps' ? 'bg-[#0F3D2E] text-[#FAF8F5] shadow-sm' : 'text-[#6B6B6B] hover:text-[#0F3D2E]'
-                }`}
-              >
-                Buying Steps
-              </button>
-            </div>
-          </div>
-
-          {processTab === 'diligence' && (
-            <div className="grid sm:grid-cols-2 gap-3">
-              {[
-                { Icon: FileText, title: '1. Auction Notice', desc: 'The official bank-published notice contains the reserve price, auction date, EMD, and terms of sale. Review carefully — all bidding is subject to its conditions.' },
-                { Icon: Shield, title: '2. Encumbrance / Dues', desc: 'Check outstanding charges, society dues, property tax arrears, or other encumbrances. Buyers are typically liable for dues post-auction.' },
-                { Icon: Scale, title: '3. Litigation', desc: 'SARFAESI auctions may have borrower challenges in DRT or High Court. Verify whether any stay orders or objections exist before bidding.' },
-                { Icon: MapPin, title: '4. Site Visit', desc: 'Physical inspection is strongly recommended. Assess condition, verify possession status, and check for occupancy or structural concerns.' },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 bg-white border border-black/5 rounded-xl p-4 hover:border-[#0F3D2E]/15 transition-all">
-                  <div className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <item.Icon className="w-4 h-4 text-[#6B6B6B]" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-[#0F3D2E] mb-1" style={{ fontFamily: "'Crimson Pro', serif" }}>{item.title}</div>
-                    <div className="text-xs text-[#6B6B6B] leading-relaxed">{item.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {processTab === 'steps' && (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              {[
-                { n: '01', title: 'Choose a Property', desc: 'Explore listings and find a property that meets your investment requirements.', Icon: Home },
-                { n: '02', title: 'Pay the EMD', desc: 'Submit 10% of the reserve price as Earnest Money Deposit via Demand Draft to the bank.', Icon: CreditCard },
-                { n: '03', title: 'Submit Application', desc: 'Fill the Common Application Form (CAF) with KYC documents before the auction.', Icon: ClipboardList },
-                { n: '04', title: 'Participate in Auction', desc: 'Attend the e-auction on the scheduled date and place bids against other registered bidders.', Icon: Users },
-                { n: '05', title: 'Auction Outcome', desc: 'Win: pay 15% immediately. Lose: full EMD refunded within days.', Icon: Gavel },
-                { n: '06', title: 'Pay Balance in 15 Days', desc: 'Pay the remaining 75% of the total bid amount within 15 days to initiate the sale process.', Icon: Clock },
-                { n: '07', title: 'Obtain Sale Certificate', desc: 'The bank issues a Sale Certificate confirming transfer of ownership upon full payment.', Icon: Award },
-                { n: '08', title: 'Register the Property', desc: 'Complete registration at the Sub-Registrar Office with the Sale Certificate to get clear title.', Icon: Landmark },
-              ].map((step, i) => (
-                <div key={i} className="bg-white border border-black/5 rounded-xl p-4 hover:border-[#0F3D2E]/15 transition-all">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-7 h-7 bg-[#0F3D2E] rounded-md flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] font-semibold text-[#FAF8F5]">{step.n}</span>
-                    </div>
-                    <step.Icon className="w-4 h-4 text-[#B8935E]" />
-                  </div>
-                  <div className="text-sm font-medium text-[#0F3D2E] mb-1">{step.title}</div>
-                  <div className="text-xs text-[#6B6B6B] leading-relaxed">{step.desc}</div>
-                </div>
-              ))}
             </div>
           )}
         </div>
